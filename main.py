@@ -1,11 +1,13 @@
 import sys
 import math
+from player import Player
 
 # Auto-generated code below aims at helping you parse
 # the standard input according to the problem statement.
 
 # base_x: The corner of the map representing your base
 base_x, base_y = [int(i) for i in input().split()]
+player = Player(base_x, base_y)
 heroes_per_player = int(input())  # Always 3
 
 # game loop
@@ -25,7 +27,7 @@ while True:
         # vx: Trajectory of this monster
         # near_base: 0=monster with no target yet, 1=monster targeting a base
         # threat_for: Given this monster's trajectory, is it a threat to 1=your base, 2=your opponent's base, 0=neither
-        _id, _type, x, y, shield_life, is_controlled, health, vx, vy, near_base, threat_for = [int(j) for j in input().split()]
+        player.add_entity(*[int(j) for j in input().split()])
     for i in range(heroes_per_player):
 
         # Write an action using print

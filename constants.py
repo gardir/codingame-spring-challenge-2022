@@ -1,0 +1,3 @@
+MONSTER = 0
+ALLY = 1
+OPPONENT = 2
