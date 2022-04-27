@@ -28,11 +28,14 @@ while True:
         # near_base: 0=monster with no target yet, 1=monster targeting a base
         # threat_for: Given this monster's trajectory, is it a threat to 1=your base, 2=your opponent's base, 0=neither
         player.add_entity(*[int(j) for j in input().split()])
-    for i in range(heroes_per_player):
+
+    player.evaluate_orders()
+    for hero in player.heroes:
 
         # Write an action using print
         # To debug: print("Debug messages...", file=sys.stderr, flush=True)
 
-
         # In the first league: MOVE <x> <y> | WAIT; In later leagues: | SPELL <spellParams>;
-        print("WAIT")
+        command = hero.act()
+        print(command)
+    player.reset()
