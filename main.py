@@ -1,6 +1,6 @@
 import sys
 import math
-from player import Player
+from player import *
 
 # Auto-generated code below aims at helping you parse
 # the standard input according to the problem statement.
@@ -16,6 +16,7 @@ while True:
         # health: Your base health
         # mana: Ignore in the first league; Spend ten mana to cast a spell
         health, mana = [int(j) for j in input().split()]
+        player.update(health, mana)
     entity_count = int(input())  # Amount of heros and monsters you can see
     for i in range(entity_count):
         # _id: Unique identifier
@@ -37,5 +38,6 @@ while True:
 
         # In the first league: MOVE <x> <y> | WAIT; In later leagues: | SPELL <spellParams>;
         command = hero.act()
+        debug_print(f"HERO #{hero.uid} COMMAND -- {command}")
         print(command)
     player.reset()
