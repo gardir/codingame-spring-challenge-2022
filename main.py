@@ -9,7 +9,6 @@ from player import *
 base_x, base_y = [int(i) for i in input().split()]
 player = Player(base_x, base_y)
 heroes_per_player = int(input())  # Always 3
-
 # game loop
 while True:
     for i in range(2):

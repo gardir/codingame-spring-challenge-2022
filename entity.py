@@ -1,3 +1,6 @@
+from constants import *
+
+
 class Entity:
 
     def __init__(self, uid, x, y, shield_life, is_controlled, vx, vy):
@@ -27,6 +30,9 @@ class Entity:
         left = ax < x < bx and ay < y < by
         right = ax > x > bx and ay > y > by
         return left or right
+
+    def distance_to(self, target):
+        return distance(*self.position, *target.position)
 
     def update_base(self, x, y, shield_life, is_controlled, vx, vy):
         self.x = x
